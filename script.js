@@ -18,8 +18,8 @@
     try{
       setStatus("Loading AI model");$("modelState").textContent="Loading COCO-SSD…";
       await tf.ready();
-      state.model=await cocoSsd.load({base:"lite_mobilenet_v2"});
-      $("modelState").textContent="Ready · MobileNet V2";$("modelState").previousElementSibling?.classList.add("ready");
+      state.model=await cocoSsd.load({base:"mobilenet_v2"});
+      $("modelState").textContent="Ready · MobileNet V2 (accuracy mode)";$("modelState").previousElementSibling?.classList.add("ready");
       setStatus("AI model ready",true);toast("AI model loaded. Upload an image or start your webcam.");renderAnalytics();
     }catch(err){console.error(err);setStatus("Model failed to load",false,true);$("modelState").textContent="Could not load model";toast("AI model failed to load. Check internet access and refresh the page.");}
   }
